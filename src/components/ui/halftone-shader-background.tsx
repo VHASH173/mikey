@@ -287,8 +287,9 @@ export default function HalftoneShaderBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext("webgl", { antialias: true, alpha: false });
-    if (!gl) return;
+    const glContext = canvas.getContext("webgl", { antialias: true, alpha: false });
+    if (!glContext) return;
+    const gl = glContext;
 
     const vertexShader = compileShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER);
     const fragmentShader = compileShader(
